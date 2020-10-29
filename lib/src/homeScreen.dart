@@ -3,6 +3,7 @@ import 'package:online_food_order/src/widgets/home_topinfo.dart';
 import 'package:online_food_order/src/widgets/food_Category.dart';
 import 'package:online_food_order/src/widgets/Search_Widget.dart';
 import 'package:online_food_order/src/widgets/boughts_foods.dart';
+import 'package:online_food_order/src/data/Food_Data.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -11,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Food>_foods = foods;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontWeight: FontWeight.bold),
               ),
               GestureDetector(
-                onTap: (){print("view all");},
+                onTap: () {
+                  print("view all");
+                },
                 child: Text(
                   "View all",
                   style: TextStyle(
@@ -50,11 +55,27 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 20.0,
           ),
-          Container(
-            child: BoughtFoods(),
+          Column(
+            children:_foods.map(_buildFoodItems).toList(),
           )
         ],
       ),
     );
   }
+
+  Widget _buildFoodItems(Food food) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 20.0),
+      child: BoughtFoods(
+        id: food.id,
+        name: food.name,
+        category: food.category,
+        discount: food.discount,
+        imagePath: food.imagePath,
+        price: food.price,
+        rating: food.rating,
+      ),
+    );
+  }
+
 }
