@@ -1,21 +1,4 @@
-class Food {
-  final String id;
-  final String name;
-  final String imagePath;
-  final String category;
-  final double price;
-  final double discount;
-  final double rating;
-
-  Food(
-      {this.id,
-      this.name,
-      this.imagePath,
-      this.category,
-      this.price,
-      this.discount,
-      this.rating});
-}
+import 'package:online_food_order/src/models/Food_model.dart';
 
 final foods = [
   Food(

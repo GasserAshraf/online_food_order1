@@ -7,12 +7,13 @@ import 'package:online_food_order/src/data/Food_Data.dart';
 import 'package:online_food_order/src/models/Food_model.dart';
 
 
-class HomeScreen extends StatefulWidget {
+
+class HomePage extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   List<Food>_foods = foods;
 
   @override
