@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_food_order/src/widgets/order_card.dart';
 
 class OrderPage extends StatefulWidget {
   @override
@@ -8,8 +9,13 @@ class OrderPage extends StatefulWidget {
 class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("New Order"),
+    return ListView(
+      scrollDirection: Axis.vertical,
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      children: <Widget>[
+        OrderCard()
+      ],
+
     );
   }
 }
