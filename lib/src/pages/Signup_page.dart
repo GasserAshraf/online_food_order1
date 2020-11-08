@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:online_food_order/src/pages/Signup_page.dart';
+import 'package:online_food_order/src/pages/signin_page.dart';
 
-class SignInPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool _PasswordVisibility = true;
+  bool _ConfirmPasswordVisibility = true;
 
   @override
   Widget _buildEmailTextField() {
     return TextFormField(
       decoration: InputDecoration(
-          hintText: "Your email or Username",
+          hintText: "Your email",
+          hintStyle: TextStyle(color: Color(0xffbdc2cb), fontSize: 18.0)),
+    );
+  }
+
+  Widget _buildUsernameTextField() {
+    return TextFormField(
+      decoration: InputDecoration(
+          hintText: "Your Username",
           hintStyle: TextStyle(color: Color(0xffbdc2cb), fontSize: 18.0)),
     );
   }
@@ -36,34 +45,38 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
+  Widget _buildConfirmPasswordTextField() {
+    return TextFormField(
+      decoration: InputDecoration(
+          hintText: "Enter your Password",
+          hintStyle: TextStyle(color: Color(0xffbdc2cb), fontSize: 18.0),
+          suffixIcon: IconButton(
+              icon: _ConfirmPasswordVisibility
+                  ? Icon(Icons.visibility_off)
+                  : Icon(Icons.visibility),
+              onPressed: () {
+                setState(() {
+                  _ConfirmPasswordVisibility = !_ConfirmPasswordVisibility;
+                });
+              })),
+      obscureText: _ConfirmPasswordVisibility,
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Sign In",
+              "Sign Up",
               style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 100.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Text(
-                  "Forgotten Password ..?",
-                  style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.blueAccent,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 10.0,
+              height: 50.0,
             ),
             Card(
               elevation: 5.0,
@@ -71,11 +84,19 @@ class _SignInPageState extends State<SignInPage> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: <Widget>[
+                    _buildUsernameTextField(),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     _buildEmailTextField(),
                     SizedBox(
                       height: 20.0,
                     ),
                     _buildPasswordTextField(),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    _buildConfirmPasswordTextField(),
                   ],
                 ),
               ),
@@ -90,7 +111,7 @@ class _SignInPageState extends State<SignInPage> {
                   borderRadius: BorderRadius.circular(25.0)),
               child: Center(
                 child: Text(
-                  "Sign In",
+                  "Sign Up",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
@@ -105,7 +126,7 @@ class _SignInPageState extends State<SignInPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Don't Have an account ..?",
+                  "Already Have an account ..?",
                   style: TextStyle(
                       color: Color(0xffbdc2cb),
                       fontWeight: FontWeight.bold,
@@ -117,10 +138,10 @@ class _SignInPageState extends State<SignInPage> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (BuildContext context) => SignUpPage()));
+                        builder: (BuildContext context) => SignInPage()));
                   },
                   child: Text(
-                    "Sign up",
+                    "Sign in",
                     style: TextStyle(
                         color: Colors.blueAccent,
                         fontWeight: FontWeight.bold,

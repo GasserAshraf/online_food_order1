@@ -28,7 +28,6 @@ class _OrderPageState extends State<OrderPage> {
             children: <Widget>[
               OrderCard(),
               OrderCard(),
-
             ],
           ),
           _buildTotalContainer(),
@@ -132,14 +131,16 @@ class _OrderPageState extends State<OrderPage> {
             height: 20.0,
           ),
           GestureDetector(
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignInPage()));
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => SignInPage()));
             },
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: 50.0,
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(30.0)),
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(30.0)),
               child: Center(
                 child: Text(
                   "Proceed to Checkout",
