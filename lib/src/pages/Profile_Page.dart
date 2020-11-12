@@ -39,14 +39,26 @@ class _ProfilePageState extends State<ProfilePage> {
                           image: AssetImage("assets/images/breakfast.jpeg"),
                           fit: BoxFit.cover)),
                 ),
-                SizedBox(width: 20.0,),
+                SizedBox(
+                  width: 20.0,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("Gasser Ashraf",style:TextStyle(fontSize: 18.0),),
-                    SizedBox(height: 10.0,),
-                    Text("+201064092501",style: TextStyle(color: Colors.grey),),
-                    SizedBox(height: 20.0,),
+                    Text(
+                      "Gasser Ashraf",
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Text(
+                      "+201064092501",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
                     Container(
                       height: 25.0,
                       width: 60.0,
