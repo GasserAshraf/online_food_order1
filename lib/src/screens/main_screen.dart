@@ -10,7 +10,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int currentTabIndex = 1;
+  int currentTabIndex = 0;
   HomePage homePage;
   OrderPage orderPage;
   FavoritePage favoritePage;
@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     favoritePage = FavoritePage();
     profilePage = ProfilePage();
     pages = [homePage, orderPage, favoritePage, profilePage];
-    currentPage = orderPage;
+    currentPage = homePage;
   }
 
   @override
